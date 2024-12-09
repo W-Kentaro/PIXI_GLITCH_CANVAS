@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8"/>
+  <link rel="icon" type="image/svg+xml" href="/vite.svg"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PIXI GLITCH CANVAS</title>
+  <style>
+    [data-glitch] {
+      width: fit-content;
+      display: block;
+      position: relative;
+    }
+
+    [data-glitch] canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+  </style>
+</head>
+<body>
+<div>
+  <div data-glitch>
+    <img src="/example/img/image1.png" alt="">
+  </div>
+
+</div>
+
+<script src="/example/lib/pixi.min.js"></script>
+<script src="/example/lib/pixi-filters.js"></script>
+<script src="/dist/image_glitch.umd.js"></script>
+<script>
+  const test = new GlitchImage('[data-glitch]', {
+    glitch: {
+      slices: 10,
+      offset: 200,
+      fillMode: 'LOOP',
+    },
+  });
+</script>
+
+</body>
+</html>
